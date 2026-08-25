@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#dff2fb">
+    <title>ادب آموز | کتابخانه زنده ادبیات فارسی</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        .dashboard-card {
+            margin: 2rem auto 0;
+            max-width: 1100px;
+            background: linear-gradient(135deg, #eefaf4, #f2f7ff);
+            border: 1px solid rgba(44, 116, 179, 0.12);
+            border-radius: 22px;
+            box-shadow: 0 18px 50px rgba(19, 35, 59, 0.08);
+            padding: 1.5rem 1.25rem;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-title {
+            margin: 0;
+            font-size: clamp(1.35rem, 2vw, 2rem);
+        }
+
+        .dashboard-meta {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .dashboard-meta-item {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(25, 87, 131, 0.08);
+            border-radius: 16px;
+            padding: 0.9rem 1rem;
+        }
+
+        .dashboard-meta-item span {
+            display: block;
+            color: #567c95;
+            font-size: 0.78rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .dashboard-meta-item strong {
+            font-size: 1rem;
+            color: #1d2a38;
+        }
+
+        .school-entry-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 18px;
+            padding: 14px;
+            border: 1px solid rgba(25, 87, 131, 0.1);
+            border-radius: 14px;
+            color: #1d2a38;
+            background: rgba(255, 255, 255, 0.72);
+        }
+
+        .school-entry-card:hover {
+            box-shadow: 0 10px 24px rgba(19, 35, 59, 0.08);
+        }
+
+        .school-entry-icon {
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            color: #fff;
+            background: #2b86b3;
+            font-size: 1.2rem;
+        }
+
+        .school-entry-card span:nth-child(2) {
+            flex: 1;
+        }
+
+        .school-entry-card strong,
+        .school-entry-card small {
+            display: block;
+        }
+
+        .school-entry-card strong {
+            font-size: .95rem;
+        }
+
+        .school-entry-card small {
+            color: #567c95;
+            font-size: .72rem;
+        }
+
+        .school-entry-card b {
+            color: #2b86b3;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 760px) {
+            .dashboard-meta {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="drawer-backdrop" id="backdrop"></div>
+    <aside class="drawer" id="drawer" aria-label="منوی اصلی">
+        <div class="drawer-head">
+            <a class="brand" href="#top"><span class="brand-mark">ب</span><span>ادب آموز</span></a>
+            <button class="icon-button" id="closeDrawer" aria-label="بستن منو">✕</button>
+        </div>
+        <nav class="drawer-nav">
+            <a class="active" href="#top">⌂ <span>خانه</span></a>
+            <a href="lessons">◈ <span>آموزش‌ها</span></a>
+            <a href="practice">✎ <span>تمرین‌ها</span></a>
+            <a href="library">▤ <span>کتابخانه</span></a>
+            <a href="poets">♧ <span>شاعران و نویسندگان</span></a>
+            <a href="about">ⓘ <span>درباره ما</span></a>
+        </nav>
+        <div class="drawer-note"><strong>امروز چه می‌خوانی؟</strong><br>یک بیت تازه انتخاب کن و دایره واژگانت را بزرگ‌تر
+            کن.</div>
+    </aside>
+
+    <main id="top">
+        <header>
+            <div class="shell nav">
+                <button class="icon-button" id="openDrawer" aria-label="بازکردن منو">☰</button>
+                <a class="brand" href="#top"><span class="brand-mark">ب</span><span>ادب آموز</span></a>
+                <div class="nav-actions">
+                    <a class="login-link" href="login" aria-label="ورود یا عضویت">ورود / عضویت</a>
+                    <div class="profile-menu hidden" id="profileMenu">
+                        <button class="profile-trigger" id="profileTrigger" type="button" aria-expanded="false"
+                            aria-controls="profileDropdown">
+                            <span class="profile-avatar" aria-hidden="true"><span></span></span>
+                            <span class="profile-name" id="profileName"></span>
+                            <span class="profile-chevron" aria-hidden="true">⌄</span>
+                        </button>
+                        <div class="profile-dropdown" id="profileDropdown" hidden>
+                            <a href="lessons">دوره‌های من <span>◈</span></a>
+                            <a href="profile-complete">پروفایل <span>◉</span></a>
+                            <a href="grades">نمرات <span>✓</span></a>
+                            <a href="assignments">تکالیف <span>✎</span></a>
+                            <form method="post" action="/logout">
+                                <input type="hidden" name="csrf_token" id="profileLogoutToken">
+                                <button type="submit">خروج <span>↪</span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="shell hero">
+            <div class="hero-copy">
+                <div class="eyebrow">یادگیری ادبیات، به روایت خودت</div>
+                <h1>گذر تمدن<br><span>از ادبیات</span></h1>
+                <p class="hero-description">ادبیات فارسی را با درس‌های کوتاه، تمرین‌های هوشمند و قصه‌های شاعران، عمیق‌تر
+                    و شیرین‌تر یاد بگیر.</p>
+                <div class="actions">
+                    <a class="btn btn-primary" href="#categories">شروع یادگیری <span>←</span></a>
+                    <a class="btn btn-secondary" href="practice">شروع تمرین <span>✎</span></a>
+                </div>
+                <div class="micro-proof">
+                    <div class="community-stats" aria-label="آمار ادب آموز">
+                        <div class="community-stat"><span class="community-icon" aria-hidden="true">♧</span><strong
+                                id="teacherCount">۰</strong><small>معلم ثبت‌شده</small></div>
+                        <div class="community-stat"><span class="community-icon" aria-hidden="true">♙</span><strong
+                                id="studentCount">۰</strong><small>دانش‌آموز ثبت‌شده</small></div>
+                        <div class="community-stat"><span class="community-icon" aria-hidden="true">▤</span><strong
+                                id="lessonCount">۰</strong><small>آموزش منتشرشده</small></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-art" aria-label="تصویری از آرامگاه حافظ">
+                <div class="sun"></div>
+                <div class="seal">غزل<br>زندگی</div>
+                <div class="art-frame"><img
+                        src="https://commons.wikimedia.org/wiki/Special:FilePath/Hafezia_01.jpg?width=900"
+                        alt="آرامگاه حافظ در حافظیه شیراز" width="900" height="1098" fetchpriority="high"
+                        decoding="async"></div>
+                <div class="art-tag"><strong>امروز با حافظ</strong><span>«دوش دیدم که ملائک در میخانه زدند»</span></div>
+            </div>
+        </section>
+
+        <section class="shell promo-slider" aria-label="پیشنهادهای ادب آموز">
+            <div class="promo-track">
+                <a class="promo-slide active" href="lessons" aria-label="مشاهده مسیرهای یادگیری">
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hafezia_01.jpg?width=1400"
+                        alt="کتاب و دفتر برای یادگیری" width="1400" height="420" fetchpriority="high" decoding="async">
+                    <span class="promo-overlay"></span>
+                    <span class="promo-content"><small>مسیر یادگیری</small><strong>هر روز یک قدم<br>به دنیای ادبیات
+                            نزدیک‌تر</strong><em>مشاهده آموزش‌ها ←</em></span>
+                </a>
+                <a class="promo-slide" href="practice" aria-label="شروع تمرین روزانه">
+                    <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1400&q=75"
+                        alt="کتاب‌های گشوده برای تمرین" width="1400" height="420" loading="lazy" decoding="async">
+                    <span class="promo-overlay"></span>
+                    <span class="promo-content"><small>تمرین روزانه</small><strong>آموخته‌هایت را<br>به مهارت تبدیل
+                            کن</strong><em>شروع تمرین ←</em></span>
+                </a>
+                <a class="promo-slide" href="poets" aria-label="آشنایی با شاعران">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1400&q=75"
+                        alt="کتابخانه و گنجینه ادبیات" width="1400" height="420" loading="lazy" decoding="async">
+                    <span class="promo-overlay"></span>
+                    <span class="promo-content"><small>گنجینه ادبیات فارسی</small><strong>با بزرگان زبان
+                            فارسی<br>هم‌صحبت شو</strong><em>دیدن شاعران ←</em></span>
+                </a>
+            </div>
+            <button class="promo-arrow promo-prev" id="promoPrev" type="button" aria-label="اسلاید قبلی">‹</button>
+            <button class="promo-arrow promo-next" id="promoNext" type="button" aria-label="اسلاید بعدی">›</button>
+            <div class="promo-dots" id="promoDots" aria-label="انتخاب اسلاید"></div>
+        </section>
+
+        <section id="userDashboard" class="shell hidden">
+            <div class="dashboard-card">
+                <div class="dashboard-header">
+                    <div>
+                        <div class="eyebrow">پنل کاربری</div>
+                        <h2 class="dashboard-title" id="dashboardWelcome">سلام! خوش آمدی.</h2>
+                    </div>
+                    <a class="btn btn-primary" href="profile-complete">تکمیل اطلاعات <span>←</span></a>
+                </div>
+                <a class="school-entry-card" href="school"><span class="school-entry-icon"
+                        aria-hidden="true">⌂</span><span><strong>مدرسه من</strong><small>پایه‌ات را انتخاب کن و درس‌های
+                            ادبیات را ببین</small></span><b>←</b></a>
+                <div class="dashboard-meta">
+                    <div class="dashboard-meta-item"><span>استان</span><strong id="dashboardState">-</strong></div>
+                    <div class="dashboard-meta-item"><span>شهر</span><strong id="dashboardCity">-</strong></div>
+                    <div class="dashboard-meta-item"><span>پایه تحصیلی</span><strong id="dashboardEducation">-</strong>
+                    </div>
+                    <div class="dashboard-meta-item"><span>نام درس</span><strong id="dashboardLesson">-</strong></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="band" id="categories">
+            <div class="shell">
+                <div class="section-head">
+                    <div>
+                        <div class="eyebrow">مسیر یادگیری</div>
+                        <h2>از کجا شروع کنیم؟</h2>
+                    </div><a class="text-link" href="lessons">مشاهده همه مسیرها ←</a>
+                    <div class="category-grid">
+                        <a class="category" href="lessons/araye-adabi" data-path-slug="araye-adabi">
+                            <div class="category-icon">✺</div>
+                            <h3>آرایه‌های ادبی</h3>
+                            <p>۰ درس منتشرشده</p>
+                        </a>
+                        <a class="category" href="lessons/gharabat-manayi" data-path-slug="gharabat-manayi">
+                            <div class="category-icon">❝</div>
+                            <h3>قرابت معنایی</h3>
+                            <p>۰ درس منتشرشده</p>
+                        </a>
+                        <a class="category" href="lessons/vazhegan-farsi" data-path-slug="vazhegan-farsi">
+                            <div class="category-icon">آ</div>
+                            <h3>واژگان</h3>
+                            <p>۰ درس منتشرشده</p>
+                        </a>
+                        <a class="category" href="lessons/emlay-farsi" data-path-slug="emlay-farsi">
+                            <div class="category-icon">✓</div>
+                            <h3>املا</h3>
+                            <p>۰ درس منتشرشده</p>
+                        </a>
+                        <a class="category" href="lessons/dastoor-zaban" data-path-slug="dastoor-zaban">
+                            <div class="category-icon">⌘</div>
+                            <h3>دستور زبان</h3>
+                            <p>۰ درس منتشرشده</p>
+                        </a>
+                        <a class="category" href="lessons/tarikh-e-adabiat" data-path-slug="lessons/tarikh-e-adabiat">
+                            <div class="category-icon">⌛</div>
+                            <h3>تاریخ ادبیات</h3>
+                            <p>۰ درس منتشرشده</p>
+                        </a>
+                    </div>
+                </div>
+        </section>
+
+        <section class="authors-band" id="authors">
+            <div class="shell">
+                <div class="section-head">
+                    <div>
+                        <div class="eyebrow">چهره‌های ماندگار</div>
+                        <h2>معرفی نویسندگان</h2>
+                    </div>
+                    <a class="text-link" href="poets">مشاهده همه نویسندگان ←</a>
+                </div>
+                <div class="authors-grid">
+                    <a class="author-card" href="poets">
+                        <img class="author-image"
+                            src="https://commons.wikimedia.org/wiki/Special:FilePath/Saadi_-_Il_Roseto,_I_(page_1_crop).jpg?width=600"
+                            alt="تصویر سعدی" width="600" height="180" loading="lazy" decoding="async">
+                        <span class="author-mark coral">س</span>
+                        <div>
+                            <h3>سعدی</h3><small>استاد حکایت و غزل</small>
+                            <p>نویسندهٔ گلستان و بوستان، با زبانی ساده و انسانی.</p>
+                        </div>
+                    </a>
+                    <a class="author-card" href="poets">
+                        <img class="author-image"
+                            src="https://commons.wikimedia.org/wiki/Special:FilePath/Chama_al-Din_Muhammad_Hafiz.jpg?width=600"
+                            alt="تصویر حافظ" width="600" height="180" loading="lazy" decoding="async">
+                        <span class="author-mark gold">ح</span>
+                        <div>
+                            <h3>حافظ</h3><small>شاعر غزل‌های ماندگار</small>
+                            <p>صدای رازآلود غزل فارسی و همراه همیشگی لحظه‌های خواندن.</p>
+                        </div>
+                    </a>
+                    <a class="author-card" href="poets">
+                        <img class="author-image"
+                            src="https://images.unsplash.com/photo-1577083552431-6e5fd01988c5?w=600&q=70"
+                            alt="تصویر مولوی" width="600" height="180" loading="lazy" decoding="async">
+                        <span class="author-mark">م</span>
+                        <div>
+                            <h3>مولوی</h3><small>شاعر عرفان و معنا</small>
+                            <p>آفرینندهٔ مثنوی معنوی و روایتگر شور، عشق و سلوک.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="books-band" id="books">
+            <div class="shell books-layout">
+                <div class="books-intro">
+                    <div class="eyebrow">پیشنهاد خواندن</div>
+                    <h2>معرفی کتاب</h2>
+                    <p>برای شروع یک سفر کوتاه در ادبیات فارسی، این کتاب‌ها را به قفسهٔ مطالعه‌ات اضافه کن.</p>
+                    <a class="btn btn-primary" href="library">ورود به کتابخانه <span>←</span></a>
+                </div>
+                <div class="book-shelf" aria-label="کتاب‌های پیشنهادی">
+                    <a class="book-card" href="library"><img class="book-image"
+                            src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=500&q=70"
+                            alt="تصویر جلد گلستان سعدی" width="500" height="220" loading="lazy" decoding="async"><span
+                            class="book-spine teal">گلستان</span><strong>گلستان
+                            سعدی</strong><small>حکایت · خواندن کوتاه</small></a>
+                    <a class="book-card" href="library"><img class="book-image"
+                            src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=500&q=70"
+                            alt="تصویر جلد مثنوی معنوی" width="500" height="220" loading="lazy" decoding="async"><span
+                            class="book-spine coral">مثنوی</span><strong>مثنوی
+                            معنوی</strong><small>عرفان · سفر در معنا</small></a>
+                    <a class="book-card" href="library"><img class="book-image"
+                            src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=500&q=70"
+                            alt="تصویر جلد کلیدر" width="500" height="220" loading="lazy" decoding="async"><span
+                            class="book-spine gold">کلیدر</span><strong>کلیدر</strong><small>رمان · روایت زندگی و
+                            مردم</small></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="public-lessons-band" id="latest-articles">
+            <div class="shell">
+                <div class="section-head">
+                    <div>
+                        <div class="eyebrow">تازه‌های ادبیات</div>
+                        <h2>آخرین مقالات</h2>
+                    </div><a class="text-link" href="lessons">مشاهده همه مقالات ←</a>
+                </div>
+                <div class="public-lessons-grid article-grid" id="publicLessons"></div>
+            </div>
+        </section>
+
+        <section class="about-band" id="about">
+            <div class="shell about-content">
+                <div>
+                    <div class="eyebrow">دربارهٔ ادب آموز</div>
+                    <h2>یادگیری ادبیات، ساده و زنده</h2>
+                </div>
+                <p>ادب آموز فضایی برای یادگیری روزانهٔ ادبیات فارسی است؛ جایی برای خواندن، تمرین‌کردن و آشناشدن با
+                    شاعران و نویسندگان بزرگ ایران.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="shell footer-inner"><span>ادب آموز · برای دوست‌داران زبان فارسی</span><span>ساخته شده با عشق به
+                کلمه‌ها</span></div>
+    </footer>
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="js/persian-numbers.js"></script>
+    <script>
+        const drawer = document.getElementById('drawer');
+        const backdrop = document.getElementById('backdrop');
+        const toast = document.getElementById('toast');
+        const loginLink = document.querySelector('.login-link');
+        const profileMenu = document.getElementById('profileMenu');
+        const profileTrigger = document.getElementById('profileTrigger');
+        const profileDropdown = document.getElementById('profileDropdown');
+        const profileName = document.getElementById('profileName');
+        const setDrawer = (open) => { drawer.classList.toggle('open', open); backdrop.classList.toggle('open', open); };
+        document.getElementById('openDrawer').addEventListener('click', () => setDrawer(true));
+        document.getElementById('closeDrawer').addEventListener('click', () => setDrawer(false));
+        const promoSlides = [...document.querySelectorAll('.promo-slide')];
+        const promoDots = document.getElementById('promoDots');
+        let promoIndex = 0;
+        let promoTimer;
+        const showPromo = (index) => {
+            promoIndex = (index + promoSlides.length) % promoSlides.length;
+            promoSlides.forEach((slide, slideIndex) => slide.classList.toggle('active', slideIndex === promoIndex));
+            promoDots?.querySelectorAll('button').forEach((dot, dotIndex) => dot.classList.toggle('active', dotIndex === promoIndex));
+        };
+        promoSlides.forEach((_, slideIndex) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.setAttribute('aria-label', `اسلاید ${slideIndex + 1}`);
+            dot.addEventListener('click', () => { showPromo(slideIndex); resetPromoTimer(); });
+            promoDots?.append(dot);
+        });
+        const resetPromoTimer = () => { clearInterval(promoTimer); promoTimer = setInterval(() => showPromo(promoIndex + 1), 6000); };
+        document.getElementById('promoPrev')?.addEventListener('click', () => { showPromo(promoIndex - 1); resetPromoTimer(); });
+        document.getElementById('promoNext')?.addEventListener('click', () => { showPromo(promoIndex + 1); resetPromoTimer(); });
+        showPromo(0);
+        resetPromoTimer();
+        backdrop.addEventListener('click', () => setDrawer(false));
+        document.querySelectorAll('.drawer-nav a').forEach(link => link.addEventListener('click', () => setDrawer(false)));
+        profileTrigger?.addEventListener('click', () => {
+            const isOpen = profileTrigger.getAttribute('aria-expanded') === 'true';
+            profileTrigger.setAttribute('aria-expanded', String(!isOpen));
+            profileDropdown.hidden = isOpen;
+            profileMenu.classList.toggle('open', !isOpen);
+        });
+        document.addEventListener('click', (event) => {
+            if (profileMenu && !profileMenu.contains(event.target)) {
+                profileTrigger?.setAttribute('aria-expanded', 'false');
+                if (profileDropdown) profileDropdown.hidden = true;
+                profileMenu.classList.remove('open');
+            }
+        });
+
+        fetch('api/me', { credentials: 'same-origin' }).then(response => response.json()).then(user => {
+            const totalLessons = Number(user.progress?.total_lessons ?? 0);
+            const completedLessons = Number(user.progress?.completed_lessons ?? 0);
+            const progressPercent = totalLessons ? Math.round(completedLessons / totalLessons * 100) : 0;
+            const progressButton = document.getElementById('progressButton');
+            if (progressButton) progressButton.textContent = `${new Intl.NumberFormat('fa-IR').format(progressPercent)}٪`;
+            if (user.authenticated && user.role === 'admin') {
+                window.location.replace('admin');
+                return;
+            }
+            if (user.authenticated && user.role === 'teacher') {
+                window.location.replace('teacher/dashboard');
+                return;
+            }
+            if (user.authenticated && user.role === 'student') {
+                if (loginLink) loginLink.classList.add('hidden');
+                if (profileName) profileName.textContent = user.first_name || user.username || user.name;
+                if (profileMenu) profileMenu.classList.remove('hidden');
+                const profileLogoutToken = document.getElementById('profileLogoutToken');
+                if (profileLogoutToken) profileLogoutToken.value = user.csrf_token || '';
+
+                const dashboard = document.getElementById('userDashboard');
+                const dashboardWelcome = document.getElementById('dashboardWelcome');
+                const dashboardState = document.getElementById('dashboardState');
+                const dashboardCity = document.getElementById('dashboardCity');
+                const dashboardEducation = document.getElementById('dashboardEducation');
+                const dashboardLesson = document.getElementById('dashboardLesson');
+
+                if (dashboard) dashboard.classList.remove('hidden');
+                if (dashboardWelcome) dashboardWelcome.textContent = `سلام ${user.username || user.name}! خوش آمدی.`;
+                if (dashboardState) dashboardState.textContent = user.state || 'ثبت نشده';
+                if (dashboardCity) dashboardCity.textContent = user.city || 'ثبت نشده';
+                if (dashboardEducation) dashboardEducation.textContent = user.education_level || 'ثبت نشده';
+                if (dashboardLesson) dashboardLesson.textContent = user.favorite_subject || 'ثبت نشده';
+            }
+            if (user.flash_message) showToast(user.flash_message);
+        }).catch(() => { });
+
+        fetch('api/home-content').then(response => response.json()).then(content => {
+            const title = content.hero_title || '';
+            const description = content.hero_description || '';
+            const heroTitle = document.querySelector('.hero h1');
+            const heroDescription = document.querySelector('.hero-description');
+            if (title && heroTitle) {
+                const titleParts = title.trim().split(/\s+/);
+                heroTitle.textContent = '';
+                if (titleParts.length > 1) {
+                    heroTitle.append(document.createTextNode(titleParts.slice(0, -1).join(' ')));
+                    heroTitle.append(document.createElement('br'));
+                    const lastWord = document.createElement('span');
+                    lastWord.textContent = titleParts.at(-1);
+                    heroTitle.append(lastWord);
+                } else {
+                    heroTitle.textContent = title;
+                }
+            }
+            if (description && heroDescription) heroDescription.textContent = description;
+            const authors = document.querySelector('.authors-grid');
+            if (authors && Array.isArray(content.published_poets) && content.published_poets.length) {
+                authors.textContent = '';
+                content.published_poets.forEach((poet, index) => {
+                    const card = document.createElement('a');
+                    card.className = 'author-card';
+                    card.href = 'poets';
+                    const image = document.createElement('img');
+                    image.className = 'author-image';
+                    image.src = poet.image_url || '';
+                    image.alt = `تصویر ${poet.name || 'نویسنده'}`;
+                    image.width = 600;
+                    image.height = 180;
+                    image.loading = 'lazy';
+                    image.decoding = 'async';
+                    const mark = document.createElement('span');
+                    mark.className = `author-mark ${index % 3 === 1 ? 'coral' : (index % 3 === 2 ? 'gold' : '')}`;
+                    mark.textContent = (poet.name || 'ا').charAt(0);
+                    const details = document.createElement('div');
+                    const name = document.createElement('h3');
+                    name.textContent = poet.name || '';
+                    const period = document.createElement('small');
+                    period.textContent = poet.period || (poet.category === 'writer' ? 'نویسنده' : 'شاعر');
+                    const biography = document.createElement('p');
+                    biography.textContent = poet.biography || '';
+                    details.append(name, period, biography);
+                    card.append(image, mark, details);
+                    authors.append(card);
+                });
+            }
+            const books = document.querySelector('.book-shelf');
+            if (books && Array.isArray(content.published_books) && content.published_books.length) {
+                books.textContent = '';
+                content.published_books.slice(0, 3).forEach((book, index) => {
+                    const card = document.createElement('a');
+                    card.className = 'book-card';
+                    card.href = 'library';
+                    const image = document.createElement('img');
+                    image.className = 'book-image';
+                    image.src = book.image_url || '';
+                    image.alt = `تصویر جلد ${book.name || 'کتاب'}`;
+                    image.width = 500;
+                    image.height = 220;
+                    image.loading = 'lazy';
+                    image.decoding = 'async';
+                    const spine = document.createElement('span');
+                    spine.className = `book-spine ${index % 3 === 1 ? 'coral' : (index % 3 === 2 ? 'gold' : 'teal')}`;
+                    spine.textContent = (book.name || 'کتاب').slice(0, 8);
+                    const name = document.createElement('strong');
+                    name.textContent = book.name || '';
+                    const category = document.createElement('small');
+                    category.textContent = book.category || 'کتاب فارسی';
+                    card.append(image, spine, name, category);
+                    books.append(card);
+                });
+            }
+            const publicLessons = document.getElementById('publicLessons');
+            if (publicLessons && Array.isArray(content.public_lessons)) {
+                content.public_lessons.forEach(lesson => {
+                    const card = document.createElement('article');
+                    card.className = 'public-lesson article-card';
+                    const cover = document.createElement('div');
+                    cover.className = 'article-cover';
+                    cover.textContent = lesson.path_title?.slice(0, 1) || 'ا';
+                    const details = document.createElement('div');
+                    const title = document.createElement('h3');
+                    title.textContent = lesson.title || '';
+                    const summary = document.createElement('p');
+                    summary.textContent = lesson.summary || 'یک مقاله کوتاه و کاربردی برای یادگیری بهتر ادبیات فارسی.';
+                    const teacher = document.createElement('small');
+                    teacher.textContent = `${lesson.path_title || 'ادبیات فارسی'} · نوشته شده توسط ${lesson.teacher_name || 'ادب آموز'}`;
+                    const link = document.createElement('a');
+                    link.href = `lessons/${lesson.path_slug || ''}`;
+                    link.textContent = 'ادامه مطلب ←';
+                    details.append(title, summary, teacher, link);
+                    card.append(cover, details);
+                    publicLessons.append(card);
+                });
+            }
+            document.querySelectorAll('[data-path-slug]').forEach(card => {
+                const count = Number(content.lesson_counts?.[card.dataset.pathSlug] ?? 0);
+                const countLabel = card.querySelector('p');
+                if (countLabel) countLabel.textContent = `${new Intl.NumberFormat('fa-IR').format(count)} درس منتشرشده`;
+            });
+            const formatNumber = value => new Intl.NumberFormat('fa-IR').format(Number(value ?? 0));
+            const teacherCount = document.getElementById('teacherCount');
+            const studentCount = document.getElementById('studentCount');
+            const lessonCount = document.getElementById('lessonCount');
+            const totalLessons = Object.values(content.lesson_counts ?? {}).reduce((total, count) => total + Number(count), 0);
+            if (teacherCount) teacherCount.textContent = formatNumber(content.teacher_count);
+            if (studentCount) studentCount.textContent = formatNumber(content.student_count);
+            if (lessonCount) lessonCount.textContent = formatNumber(totalLessons);
+        }).catch(() => { });
+
+        let toastTimer;
+        const showToast = (message) => { toast.textContent = message; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2600); };
+    </script>
+</body>
+
+</html>

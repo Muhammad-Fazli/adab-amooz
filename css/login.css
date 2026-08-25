@@ -1,0 +1,304 @@
+:root {
+    --ink: #18324a;
+    --soft: #55758d;
+    --cream: #eef7fb;
+    --paper: #fbfeff;
+    --line: #d7e8f1;
+    --blue: #2b86b3;
+    --deep: #1e668e;
+    --gold: #c6913a;
+    --coral: #d76e54;
+    --sage: #d9edf7;
+    --shadow: 0 18px 45px #18324a1a
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--cream);
+    color: var(--ink);
+    font: 16px/1.8 Vazirmatn, sans-serif;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden
+}
+
+body:before {
+    content: 'ب';
+    position: fixed;
+    left: -20px;
+    bottom: -100px;
+    color: #2b86b30d;
+    font: 800 25rem/1 Estedad;
+    pointer-events: none
+}
+
+a {
+    text-decoration: none;
+    color: inherit
+}
+
+.page {
+    width: min(100%, 980px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position: relative;
+    z-index: 1
+}
+
+.welcome {
+    background: var(--blue);
+    color: #fff;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 570px;
+    position: relative;
+    overflow: hidden
+}
+
+.welcome:after {
+    content: 'غزل';
+    position: absolute;
+    left: -15px;
+    bottom: -45px;
+    color: #ffffff10;
+    font: 800 12rem/1 Estedad;
+    transform: rotate(-12deg)
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font: 800 1.15rem Estedad;
+    position: relative;
+    z-index: 1
+}
+
+.mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    color: var(--blue);
+    background: #fff;
+    border-radius: 13px 13px 13px 4px;
+    box-shadow: 5px 5px var(--gold)
+}
+
+.welcome-copy {
+    position: relative;
+    z-index: 1
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: .8rem;
+    font-weight: 800
+}
+
+.welcome h1 {
+    font: 800 clamp(2rem, 4vw, 3.2rem)/1.35 Estedad;
+    margin: 15px 0
+}
+
+.welcome p {
+    color: #e1f0f5;
+    max-width: 340px;
+    font-size: .9rem
+}
+
+.quote {
+    border-right: 2px solid var(--gold);
+    padding-right: 14px;
+    color: #d9ebf2;
+    font: 1rem/2 Estedad;
+    position: relative;
+    z-index: 1
+}
+
+.quote small {
+    font: .7rem Vazirmatn;
+    color: #b9d7e1
+}
+
+.form-area {
+    padding: 48px 43px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+.form-area h2 {
+    font: 800 1.65rem Estedad;
+    margin: 0 0 5px
+}
+
+.sub {
+    color: var(--soft);
+    font-size: .82rem;
+    margin-bottom: 25px
+}
+
+.field {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 15px
+}
+
+.field label {
+    font-size: .78rem;
+    font-weight: 700
+}
+
+.field input {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    padding: 11px 13px;
+    color: var(--ink);
+    outline: 0;
+    transition: .2s
+}
+
+.field input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px #2b86b31c
+}
+
+.account-type {
+    display: flex;
+    gap: 8px;
+    margin: 0 0 16px;
+}
+
+.account-type label {
+    flex: 1;
+    padding: 8px 6px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: var(--soft);
+    font-size: .7rem;
+    text-align: center;
+}
+
+.account-type input {
+    accent-color: var(--blue);
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 3px 0 21px;
+    font-size: .72rem;
+    color: var(--soft)
+}
+
+.check {
+    display: flex;
+    align-items: center;
+    gap: 6px
+}
+
+.check input {
+    accent-color: var(--blue)
+}
+
+.forgot {
+    color: var(--blue);
+    font-weight: 700
+}
+
+.btn {
+    width: 100%;
+    border: 0;
+    border-radius: 10px;
+    padding: 12px;
+    background: var(--blue);
+    color: #fff;
+    font-weight: 700;
+    transition: .2s
+}
+
+.btn:hover {
+    background: var(--deep);
+    transform: translateY(-2px)
+}
+
+.switch {
+    text-align: center;
+    color: var(--soft);
+    font-size: .78rem;
+    margin: 19px 0 0
+}
+
+.switch a {
+    color: var(--blue);
+    font-weight: 800
+}
+
+.home {
+    text-align: center;
+    margin-top: 25px;
+    color: var(--soft);
+    font-size: .75rem
+}
+
+.home:hover {
+    color: var(--blue)
+}
+
+.message {
+    min-height: 22px;
+    color: var(--coral);
+    font-size: .74rem;
+    margin: 8px 0 0
+}
+
+@media(max-width:680px) {
+    body {
+        padding: 12px
+    }
+
+    .page {
+        display: block
+    }
+
+    .welcome {
+        min-height: 250px;
+        padding: 28px 25px
+    }
+
+    .welcome .quote {
+        display: none
+    }
+
+    .welcome h1 {
+        font-size: 2rem;
+        margin: 10px 0 5px
+    }
+
+    .welcome p {
+        margin: 0
+    }
+
+    .form-area {
+        padding: 30px 25px
+    }
+}

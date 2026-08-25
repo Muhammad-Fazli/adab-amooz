@@ -1,0 +1,34 @@
+RewriteEngine On
+
+RewriteRule ^(app|config|database|storage)(/|$) - [F,L]
+RewriteRule ^(check|test|test-api)\.php$ - [F,L]
+
+# Keep the homepage URL canonical and extension-free.
+RewriteRule ^index\.html$ /adab-amooz/ [R=301,L]
+RewriteRule ^(login|register)\.html$ $1 [R=301,L]
+RewriteRule ^teacher\.html$ teacher/dashboard [R=302,L]
+
+# Keep real files and directories, including assets and the static HTML pages.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^api/me/?$ public/me.php [END,QSA]
+RewriteRule ^api/home-content/?$ public/home-content.php [END,QSA]
+RewriteRule ^api/lesson-progress/?$ public/lesson-progress.php [END,QSA]
+RewriteRule ^lessons/([^/]+)/?$ public/lesson.php?slug=$1 [END,QSA]
+RewriteRule ^admin/login/?$ public/index.php [END,QSA]
+RewriteRule ^admin/(users|teachers|lessons|classes)/?$ public/admin-section.php?section=$1 [END,QSA]
+RewriteRule ^admin/poets/?$ public/admin-poets.php [END,QSA]
+RewriteRule ^admin/books/?$ public/admin-books.php [END,QSA]
+RewriteRule ^school/grade/(7|8|9|10|11|12)/?$ public/index.php [END,QSA]
+RewriteRule ^(login|register|logout|lessons|practice|grades|assignments|profile-complete)/?$ public/index.php [END,QSA]
+RewriteRule ^school/?$ public/index.php [END,QSA]
+RewriteRule ^profile/?$ public/index.php [END,QSA]
+RewriteRule ^admin/?$ public/admin.php [END,QSA]
+RewriteRule ^teacher/?$ teacher/dashboard [R=302,L]
+RewriteRule ^library/?$ library.html [END]
+RewriteRule ^about/?$ public/about.php [END,QSA]
+RewriteRule ^poets/?$ shayeran.html [END]
+RewriteRule ^teacher/school/?$ public/index.php [END,QSA]
+RewriteRule ^teacher/dashboard/?$ public/index.php [END,QSA]

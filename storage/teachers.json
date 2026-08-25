@@ -1,0 +1,406 @@
+{
+    "generated_at": "2026-08-25",
+    "description": "داده نمونه معلمان برای تست",
+    "teachers": [
+        {
+            "id": 1001,
+            "username": "teacher_001",
+            "first_name": "علی",
+            "last_name": "احمدی",
+            "email": "teacher001@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1002,
+            "username": "teacher_002",
+            "first_name": "مریم",
+            "last_name": "رضایی",
+            "email": "teacher002@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1003,
+            "username": "teacher_003",
+            "first_name": "محمد",
+            "last_name": "کریمی",
+            "email": "teacher003@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1004,
+            "username": "teacher_004",
+            "first_name": "سارا",
+            "last_name": "حسینی",
+            "email": "teacher004@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1005,
+            "username": "teacher_005",
+            "first_name": "رضا",
+            "last_name": "مرادی",
+            "email": "teacher005@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1006,
+            "username": "teacher_006",
+            "first_name": "نگار",
+            "last_name": "کاظمی",
+            "email": "teacher006@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1007,
+            "username": "teacher_007",
+            "first_name": "حسین",
+            "last_name": "موسوی",
+            "email": "teacher007@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1008,
+            "username": "teacher_008",
+            "first_name": "الهام",
+            "last_name": "صادقی",
+            "email": "teacher008@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1009,
+            "username": "teacher_009",
+            "first_name": "امیر",
+            "last_name": "اکبری",
+            "email": "teacher009@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1010,
+            "username": "teacher_010",
+            "first_name": "فاطمه",
+            "last_name": "قاسمی",
+            "email": "teacher010@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1011,
+            "username": "teacher_011",
+            "first_name": "مهدی",
+            "last_name": "جعفری",
+            "email": "teacher011@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1012,
+            "username": "teacher_012",
+            "first_name": "نرگس",
+            "last_name": "عباسی",
+            "email": "teacher012@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1013,
+            "username": "teacher_013",
+            "first_name": "سعید",
+            "last_name": "یوسفی",
+            "email": "teacher013@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1014,
+            "username": "teacher_014",
+            "first_name": "مهسا",
+            "last_name": "هاشمی",
+            "email": "teacher014@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1015,
+            "username": "teacher_015",
+            "first_name": "حامد",
+            "last_name": "نوری",
+            "email": "teacher015@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1016,
+            "username": "teacher_016",
+            "first_name": "سمیه",
+            "last_name": "رستمی",
+            "email": "teacher016@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1017,
+            "username": "teacher_017",
+            "first_name": "کاظم",
+            "last_name": "رحیمی",
+            "email": "teacher017@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1018,
+            "username": "teacher_018",
+            "first_name": "لیلا",
+            "last_name": "عزیزی",
+            "email": "teacher018@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1019,
+            "username": "teacher_019",
+            "first_name": "وحید",
+            "last_name": "باقری",
+            "email": "teacher019@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1020,
+            "username": "teacher_020",
+            "first_name": "پریسا",
+            "last_name": "توکلی",
+            "email": "teacher020@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1021,
+            "username": "teacher_021",
+            "first_name": "محمود",
+            "last_name": "نعمتی",
+            "email": "teacher021@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1022,
+            "username": "teacher_022",
+            "first_name": "آزاده",
+            "last_name": "کمالی",
+            "email": "teacher022@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1023,
+            "username": "teacher_023",
+            "first_name": "یاسر",
+            "last_name": "فرهادی",
+            "email": "teacher023@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1024,
+            "username": "teacher_024",
+            "first_name": "شبنم",
+            "last_name": "رجبی",
+            "email": "teacher024@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1025,
+            "username": "teacher_025",
+            "first_name": "میلاد",
+            "last_name": "سلیمانی",
+            "email": "teacher025@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1026,
+            "username": "teacher_026",
+            "first_name": "مونا",
+            "last_name": "امینی",
+            "email": "teacher026@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1027,
+            "username": "teacher_027",
+            "first_name": "نوید",
+            "last_name": "حیدری",
+            "email": "teacher027@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1028,
+            "username": "teacher_028",
+            "first_name": "زهرا",
+            "last_name": "زارعی",
+            "email": "teacher028@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1029,
+            "username": "teacher_029",
+            "first_name": "کمیل",
+            "last_name": "نصیری",
+            "email": "teacher029@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1030,
+            "username": "teacher_030",
+            "first_name": "ترانه",
+            "last_name": "داودی",
+            "email": "teacher030@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1031,
+            "username": "teacher_031",
+            "first_name": "فرهاد",
+            "last_name": "بیات",
+            "email": "teacher031@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1032,
+            "username": "teacher_032",
+            "first_name": "سحر",
+            "last_name": "مرکزپور",
+            "email": "teacher032@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1033,
+            "username": "teacher_033",
+            "first_name": "بهنام",
+            "last_name": "حکیمی",
+            "email": "teacher033@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1034,
+            "username": "teacher_034",
+            "first_name": "آیدا",
+            "last_name": "صفری",
+            "email": "teacher034@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1035,
+            "username": "teacher_035",
+            "first_name": "علیرضا",
+            "last_name": "شریفی",
+            "email": "teacher035@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1036,
+            "username": "teacher_036",
+            "first_name": "حدیث",
+            "last_name": "پناهی",
+            "email": "teacher036@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1037,
+            "username": "teacher_037",
+            "first_name": "پویا",
+            "last_name": "مهدوی",
+            "email": "teacher037@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1038,
+            "username": "teacher_038",
+            "first_name": "نسرین",
+            "last_name": "کریمیان",
+            "email": "teacher038@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1039,
+            "username": "teacher_039",
+            "first_name": "آرش",
+            "last_name": "جهانی",
+            "email": "teacher039@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1040,
+            "username": "teacher_040",
+            "first_name": "ریحانه",
+            "last_name": "اکبری‌فر",
+            "email": "teacher040@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1041,
+            "username": "teacher_041",
+            "first_name": "مسعود",
+            "last_name": "راد",
+            "email": "teacher041@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1042,
+            "username": "teacher_042",
+            "first_name": "مژگان",
+            "last_name": "شفیعی",
+            "email": "teacher042@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1043,
+            "username": "teacher_043",
+            "first_name": "شهاب",
+            "last_name": "نوروزی",
+            "email": "teacher043@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1044,
+            "username": "teacher_044",
+            "first_name": "بهاره",
+            "last_name": "ابراهیمی",
+            "email": "teacher044@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1045,
+            "username": "teacher_045",
+            "first_name": "فرشاد",
+            "last_name": "دهقانی",
+            "email": "teacher045@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1046,
+            "username": "teacher_046",
+            "first_name": "الهه",
+            "last_name": "حسینیان",
+            "email": "teacher046@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1047,
+            "username": "teacher_047",
+            "first_name": "کامران",
+            "last_name": "طالبی",
+            "email": "teacher047@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1048,
+            "username": "teacher_048",
+            "first_name": "سودابه",
+            "last_name": "نیکنام",
+            "email": "teacher048@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1049,
+            "username": "teacher_049",
+            "first_name": "کوروش",
+            "last_name": "اسدی",
+            "email": "teacher049@example.test",
+            "role": "teacher"
+        },
+        {
+            "id": 1050,
+            "username": "teacher_050",
+            "first_name": "مانا",
+            "last_name": "یعقوبی",
+            "email": "teacher050@example.test",
+            "role": "teacher"
+        }
+    ]
+}

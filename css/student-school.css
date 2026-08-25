@@ -1,0 +1,266 @@
+:root {
+    --ink: #18324a;
+    --muted: #55758d;
+    --cream: #eef7fb;
+    --paper: #fbfeff;
+    --line: #d7e8f1;
+    --teal: #2b86b3;
+    --gold: #c6913a;
+    --coral: #d76e54;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    color: var(--ink);
+    background: var(--cream);
+    font: 16px/1.8 Vazirmatn, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.school-shell {
+    width: min(1080px, calc(100% - 32px));
+    margin: auto;
+}
+
+header {
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+}
+
+.school-nav {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: 800 1.15rem Estedad, sans-serif;
+}
+
+.brand span {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 13px 13px 13px 4px;
+    color: #fff;
+    background: var(--teal);
+    box-shadow: 5px 5px 0 var(--gold);
+}
+
+.back-link {
+    color: var(--teal);
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.school-hero {
+    padding: 68px 0 45px;
+}
+
+.school-hero.compact {
+    padding-bottom: 35px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    font-size: .8rem;
+    font-weight: 800;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Estedad, sans-serif;
+}
+
+h1 {
+    margin: 8px 0 12px;
+    font-size: clamp(2.4rem, 6vw, 4.5rem);
+    line-height: 1.3;
+}
+
+h2 {
+    margin: 0;
+    font-size: 1.45rem;
+}
+
+.school-hero p {
+    max-width: 600px;
+    margin: 0;
+    color: var(--muted);
+}
+
+.grade-section {
+    padding: 0 0 44px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 17px;
+}
+
+.grade-count {
+    color: var(--muted);
+    font-size: .78rem;
+}
+
+.grade-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.grade-card {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    grid-template-rows: auto auto auto;
+    column-gap: 13px;
+    align-items: center;
+    padding: 17px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--paper);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.grade-card:hover,
+.lesson-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px #18324a14;
+}
+
+.grade-card.second {
+    background: #fffaf0;
+}
+
+.grade-icon {
+    grid-row: 1 / span 3;
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 16px 16px 16px 5px;
+    color: #fff;
+    background: var(--teal);
+    font: 800 1.1rem Vazirmatn, sans-serif;
+}
+
+.grade-card.second .grade-icon {
+    background: var(--coral);
+}
+
+.grade-card strong {
+    font-size: 1rem;
+}
+
+.grade-card small {
+    color: var(--muted);
+    font-size: .72rem;
+}
+
+.grade-card b {
+    margin-top: 7px;
+    color: var(--teal);
+    font-size: .72rem;
+}
+
+.lessons-section {
+    padding: 0 0 70px;
+}
+
+.lesson-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.lesson-card {
+    display: block;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--paper);
+    transition: transform .2s, box-shadow .2s;
+}
+
+.lesson-icon {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 13px;
+    border-radius: 10px;
+    color: #fff;
+    background: var(--teal);
+}
+
+.lesson-card small {
+    color: var(--gold);
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+.lesson-card h3 {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.lesson-card p {
+    min-height: 45px;
+    margin: 0;
+    color: var(--muted);
+    font-size: .76rem;
+}
+
+.lesson-card b {
+    display: block;
+    margin-top: 11px;
+    color: var(--teal);
+    font-size: .74rem;
+}
+
+.empty-state {
+    color: var(--muted);
+}
+
+footer {
+    padding: 24px 0 35px;
+    color: var(--muted);
+    font-size: .76rem;
+}
+
+@media (max-width:700px) {
+    .school-nav {
+        height: 70px;
+    }
+
+    .school-hero {
+        padding: 48px 0 34px;
+    }
+
+    .grade-grid,
+    .lesson-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: start;
+    }
+}

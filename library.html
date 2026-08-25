@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>کتابخانه | ادب آموز</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Estedad:wght@500;700;800&family=Vazirmatn:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #18324a;
+            --muted: #55758d;
+            --cream: #eef7fb;
+            --paper: #fff;
+            --line: #d7e8f1;
+            --teal: #2b86b3;
+            --gold: #c6913a;
+            --coral: #d76e54;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            color: var(--ink);
+            background: var(--cream);
+            font: 16px/1.8 Vazirmatn, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .shell {
+            width: min(1040px, calc(100% - 32px));
+            margin: auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--line);
+            background: var(--paper);
+        }
+
+        nav {
+            height: 82px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font: 800 1.2rem Estedad, sans-serif;
+        }
+
+        .back {
+            color: var(--teal);
+            font-weight: 700;
+            font-size: .8rem;
+        }
+
+        main {
+            padding: 68px 0 80px;
+        }
+
+        .eyebrow {
+            color: var(--gold);
+            font-size: .8rem;
+            font-weight: 800;
+        }
+
+        h1 {
+            margin: 8px 0 10px;
+            font: 800 clamp(2rem, 5vw, 3.6rem)/1.3 Estedad, sans-serif;
+        }
+
+        .intro {
+            max-width: 600px;
+            margin-bottom: 30px;
+            color: var(--muted);
+        }
+
+        .library-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .book {
+            display: block;
+            padding: 20px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: var(--paper);
+            transition: .2s;
+        }
+
+        .book-image {
+            display: block;
+            width: calc(100% + 40px);
+            height: 150px;
+            margin: -20px -20px 16px;
+            object-fit: cover;
+            border-radius: 14px 14px 0 0;
+        }
+
+        .book:hover {
+            border-color: var(--teal);
+            transform: translateY(-3px);
+        }
+
+        .book-cover {
+            display: grid;
+            place-items: center;
+            flex: 0 0 58px;
+            width: 58px;
+            height: 70px;
+            border-radius: 8px 10px 10px 4px;
+            color: #fff;
+            background: var(--teal);
+            font: 700 .8rem Estedad, sans-serif;
+        }
+
+        .book:nth-child(2) .book-cover {
+            background: var(--coral);
+        }
+
+        .book:nth-child(3) .book-cover {
+            background: var(--gold);
+        }
+
+        .book:nth-child(4) .book-cover {
+            background: #438d73;
+        }
+
+        h2 {
+            margin: 0 0 3px;
+            font: 700 1.05rem Estedad, sans-serif;
+        }
+
+        .book p {
+            margin: 0;
+            color: var(--muted);
+            font-size: .78rem;
+        }
+
+        @media(max-width:600px) {
+            .library-grid {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                padding-top: 42px;
+            }
+
+            nav {
+                height: 68px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="shell"><a class="brand" href="/">ادب آموز</a><a class="back" href="/">بازگشت به خانه ←</a></nav>
+    </header>
+    <main class="shell">
+        <div class="eyebrow">قفسه‌های باز</div>
+        <h1>کتابخانه‌ای برای لحظه‌های خواندن</h1>
+        <p class="intro">میان شعرها، حکایت‌ها و درس‌های کوتاه بگرد و هر بار یک چیز تازه برای خواندن پیدا کن.</p>
+        <section class="library-grid" aria-label="کتابخانه">
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=70"
+                    alt="تصویر کتاب غزل‌های حافظ" width="600" height="220" loading="lazy" decoding="async"><span
+                    class="book-cover">غزل</span>
+                <div>
+                    <h2>غزل‌های حافظ</h2>
+                    <p>شعر · ۱۵ دقیقه خواندن</p>
+                </div>
+            </article>
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=600&q=70"
+                    alt="تصویر کتاب آموزشی تشبیه" width="600" height="220" loading="lazy" decoding="async"><span
+                    class="book-cover">درس</span>
+                <div>
+                    <h2>تشبیه را ساده یاد بگیر</h2>
+                    <p>آموزشی · ۸ دقیقه خواندن</p>
+                </div>
+            </article>
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=600&q=70"
+                    alt="تصویر حکایت‌های گلستان" width="600" height="220" loading="lazy" decoding="async"><span
+                    class="book-cover">حکایت</span>
+                <div>
+                    <h2>حکایت‌های گلستان</h2>
+                    <p>داستان · ۱۲ دقیقه خواندن</p>
+                </div>
+            </article>
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?w=600&q=70"
+                    alt="تصویر راهنمای قرابت معنایی" width="600" height="220" loading="lazy" decoding="async"><span
+                    class="book-cover">تمرین</span>
+                <div>
+                    <h2>راهنمای قرابت معنایی</h2>
+                    <p>آموزشی · ۱۰ دقیقه خواندن</p>
+                </div>
+            </article>
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1495640452828-3df6795cf69b?w=600&q=70" alt="تصویر کتاب کلیدر"
+                    width="600" height="220" loading="lazy" decoding="async"><span class="book-cover">رمان</span>
+                <div>
+                    <h2>کلیدر</h2>
+                    <p>رمان ایرانی · روایت زندگی و مردم</p>
+                </div>
+            </article>
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=600&q=70"
+                    alt="تصویر کتاب داستان خوب برای بچه‌های خوب" width="600" height="220" loading="lazy"
+                    decoding="async"><span class="book-cover">کودک</span>
+                <div>
+                    <h2>داستان خوب برای بچه‌های خوب</h2>
+                    <p>کودک و نوجوان · داستان‌های آموزنده</p>
+                </div>
+            </article>
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1511108690759-009324a90311?w=600&q=70"
+                    alt="تصویر کتاب مثنوی معنوی" width="600" height="220" loading="lazy" decoding="async"><span
+                    class="book-cover">مثنوی</span>
+                <div>
+                    <h2>مثنوی معنوی</h2>
+                    <p>ادبیات عرفانی · حکایت‌های پندآموز</p>
+                </div>
+            </article>
+            <article class="book"><img class="book-image"
+                    src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&q=70"
+                    alt="تصویر داستان‌های شاهنامه" width="600" height="220" loading="lazy" decoding="async"><span
+                    class="book-cover">حماسه</span>
+                <div>
+                    <h2>داستان‌های شاهنامه</h2>
+                    <p>حماسه ایرانی · روایت‌های شاهنامه</p>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script>
+        fetch('api/home-content').then(response => response.json()).then(content => {
+            const books = document.querySelector('.library-grid');
+            if (!books || !Array.isArray(content.published_books) || !content.published_books.length) return;
+            books.textContent = '';
+            content.published_books.forEach((book, index) => {
+                const card = document.createElement('article');
+                card.className = 'book';
+                const image = document.createElement('img');
+                image.className = 'book-image';
+                image.src = book.image_url || '';
+                image.alt = `تصویر کتاب ${book.name || ''}`;
+                image.width = 600;
+                image.height = 220;
+                image.loading = 'lazy';
+                image.decoding = 'async';
+                const cover = document.createElement('span');
+                cover.className = 'book-cover';
+                cover.textContent = (book.name || 'کتاب').slice(0, 8);
+                const details = document.createElement('div');
+                const title = document.createElement('h2');
+                title.textContent = book.name || '';
+                const description = document.createElement('p');
+                description.textContent = book.description || book.category || 'کتاب فارسی';
+                details.append(title, description);
+                card.append(image, cover, details);
+                books.append(card);
+            });
+        }).catch(() => { });
+    </script>
+</body>
+
+</html>
