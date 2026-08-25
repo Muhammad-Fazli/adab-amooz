@@ -72,11 +72,21 @@ final class AdminDashboard
     {
         $limit = max(1, min(12, $limit));
         return $this->database->query(
-            'SELECT name, period, biography, image_url, category
+            'SELECT name, period, biography, image_url, category, era
              FROM poets
              WHERE is_published = 1
              ORDER BY created_at DESC, id DESC
              LIMIT ' . $limit
+        )->fetchAll();
+    }
+
+    public function allPublishedPoets(): array
+    {
+        return $this->database->query(
+            'SELECT name, period, biography, image_url, category, era
+             FROM poets
+             WHERE is_published = 1
+             ORDER BY era, created_at DESC, id DESC'
         )->fetchAll();
     }
 

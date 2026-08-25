@@ -46,6 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $name = trim((string) ($_POST['name'] ?? ''));
         $biography = trim((string) ($_POST['biography'] ?? ''));
         $category = in_array($_POST['category'] ?? '', ['poet', 'writer'], true) ? $_POST['category'] : 'poet';
+        $era = in_array($_POST['era'] ?? '', ['classical', 'contemporary'], true) ? $_POST['era'] : 'contemporary';
         $period = trim((string) ($_POST['period'] ?? ''));
         $imageUrl = null;
         $image = $_FILES['image'] ?? null;
@@ -88,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         'biography' => $biography,
                         'image_url' => 'public/images/poets/' . $filename,
                         'category' => $category,
-                        'era' => 'contemporary',
+                        'era' => $era,
                     ]);
                     $message = 'معرفی با موفقیت اضافه شد.';
                 }
@@ -98,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$poets = $pdo->query('SELECT id, name, period, biography, image_url, category FROM poets ORDER BY created_at DESC, id DESC')->fetchAll();
+$poets = $pdo->query('SELECT id, name, period, biography, image_url, category, era FROM poets ORDER BY created_at DESC, id DESC')->fetchAll();
 $adminName = trim((string) ($admin['first_name'] ?? '')) ?: (string) $admin['username'];
 ?>
 <!doctype html>
@@ -130,13 +131,14 @@ $adminName = trim((string) ($admin['first_name'] ?? '')) ?: (string) $admin['use
                     <label>اسم نویسنده یا شاعر<input type="text" name="name" maxlength="150" required placeholder="مثلاً سیمین بهبهانی"></label>
                     <label>دوره یا عنوان کوتاه<input type="text" name="period" maxlength="100" placeholder="مثلاً معاصر"></label>
                     <label>نوع معرفی<select name="category"><option value="poet">شاعر</option><option value="writer">نویسنده</option></select></label>
+                    <label>دوره ادبی<select name="era"><option value="classical">کلاسیک</option><option value="contemporary" selected>معاصر</option></select><small>در صفحه شاعران برای فیلتر «کلاسیک» و «معاصر» استفاده می‌شود</small></label>
                     <label class="full-width">توضیحات<textarea name="biography" rows="6" maxlength="5000" required placeholder="زندگی، آثار و جایگاه ادبی را بنویسید..."></textarea></label>
                 </div>
                 <button class="submit-button" type="submit">ثبت معرفی <span>←</span></button>
             </form>
         </section>
         <section class="entries"><div class="entries-heading"><h2>معرفی‌های ثبت‌شده</h2><span><?= count($poets) ?> مورد</span></div><div class="entries-grid">
-            <?php foreach ($poets as $poet): ?><article class="entry"><div class="entry-image"><?php if (!empty($poet['image_url'])): ?><img src="<?= e(url((string) $poet['image_url'])) ?>" alt="<?= e($poet['name']) ?>"><?php else: ?><span>تصویر ندارد</span><?php endif; ?></div><div class="entry-body"><h3><?= e($poet['name']) ?></h3><small><?= $poet['category'] === 'writer' ? 'نویسنده' : 'شاعر' ?><?= $poet['period'] ? ' · ' . e($poet['period']) : '' ?></small><p><?= e($poet['biography']) ?></p><form method="post" onsubmit="return confirm('این معرفی حذف شود؟');"><input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>"><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?= (int) $poet['id'] ?>"><button class="delete-button" type="submit">حذف معرفی</button></form></div></article><?php endforeach; ?>
+            <?php foreach ($poets as $poet): ?><article class="entry"><div class="entry-image"><?php if (!empty($poet['image_url'])): ?><img src="<?= e(url((string) $poet['image_url'])) ?>" alt="<?= e($poet['name']) ?>"><?php else: ?><span>تصویر ندارد</span><?php endif; ?></div><div class="entry-body"><h3><?= e($poet['name']) ?></h3><small><?= $poet['category'] === 'writer' ? 'نویسنده' : 'شاعر' ?> · <?= $poet['era'] === 'classical' ? 'کلاسیک' : 'معاصر' ?><?= $poet['period'] ? ' · ' . e($poet['period']) : '' ?></small><p><?= e($poet['biography']) ?></p><form method="post" onsubmit="return confirm('این معرفی حذف شود؟');"><input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>"><input type="hidden" name="action" value="delete"><input type="hidden" name="id" value="<?= (int) $poet['id'] ?>"><button class="delete-button" type="submit">حذف معرفی</button></form></div></article><?php endforeach; ?>
             <?php if (!$poets): ?><p class="empty">هنوز معرفی‌ای ثبت نشده است.</p><?php endif; ?>
         </div></section>
     </main>

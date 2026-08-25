@@ -12,6 +12,12 @@ $teacherCount = (new AdminDashboard($pdo))->teacherCount();
 $publishedPoets = (new AdminDashboard($pdo))->publishedPoets();
 $publishedBooks = (new AdminDashboard($pdo))->publishedBooks();
 $publicLessons = (new LearningPath($pdo))->publicRecentLessons();
+$resolveImage = static function (array $entry): array {
+    $entry['image_url'] = asset_url($entry['image_url'] ?? null);
+    return $entry;
+};
+$publishedPoets = array_map($resolveImage, $publishedPoets);
+$publishedBooks = array_map($resolveImage, $publishedBooks);
 echo json_encode([
     'hero_title' => $content['hero_title'] ?? '',
     'hero_description' => $content['hero_description'] ?? '',

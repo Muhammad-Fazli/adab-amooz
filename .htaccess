@@ -15,6 +15,7 @@ RewriteRule ^ - [L]
 
 RewriteRule ^api/me/?$ public/me.php [END,QSA]
 RewriteRule ^api/home-content/?$ public/home-content.php [END,QSA]
+RewriteRule ^api/poets/?$ public/poets-content.php [END,QSA]
 RewriteRule ^api/lesson-progress/?$ public/lesson-progress.php [END,QSA]
 RewriteRule ^lessons/([^/]+)/?$ public/lesson.php?slug=$1 [END,QSA]
 RewriteRule ^admin/login/?$ public/index.php [END,QSA]

@@ -82,6 +82,32 @@ try {
         is_published BOOLEAN NOT NULL DEFAULT TRUE,
         created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
     ) ENGINE=InnoDB");
+    $pdo->exec("CREATE TABLE IF NOT EXISTS poets (
+        id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(150) NOT NULL,
+        slug VARCHAR(160) NOT NULL UNIQUE,
+        period VARCHAR(100) NULL,
+        biography TEXT NULL,
+        image_url VARCHAR(500) NULL,
+        category ENUM('poet', 'writer') NOT NULL DEFAULT 'poet',
+        era ENUM('classical', 'contemporary') NOT NULL DEFAULT 'classical',
+        is_published BOOLEAN NOT NULL DEFAULT TRUE,
+        created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB");
+    $pdo->exec("ALTER TABLE poets ADD COLUMN IF NOT EXISTS era ENUM('classical', 'contemporary') NOT NULL DEFAULT 'classical'");
+    $pdo->exec("INSERT IGNORE INTO poets (name, slug, period, biography, image_url, category, era) VALUES
+        ('فردوسی', 'ferdowsi', 'قرن چهارم', 'سراینده شاهنامه و پاسدار زبان فارسی', 'https://commons.wikimedia.org/wiki/Special:FilePath/FerdowsiFartur.jpg?width=600', 'poet', 'classical'),
+        ('سعدی', 'saadi', 'قرن هفتم', 'استاد حکایت و غزل، نویسنده گلستان', 'https://commons.wikimedia.org/wiki/Special:FilePath/Saadi_-_Il_Roseto,_I_(page_1_crop).jpg?width=600', 'poet', 'classical'),
+        ('حافظ', 'hafez', 'قرن هشتم', 'شاعر غزل‌های رازآلود و ماندگار', 'https://commons.wikimedia.org/wiki/Special:FilePath/Chama_al-Din_Muhammad_Hafiz.jpg?width=600', 'poet', 'classical'),
+        ('مولانا', 'molana', 'قرن هفتم', 'شاعر شور و معنا، آفریننده مثنوی', 'https://images.unsplash.com/photo-1577083552431-6e5fd01988c5?w=600&q=80', 'poet', 'classical'),
+        ('خیام', 'khayyam', 'قرن پنجم', 'حکیم، ریاضی‌دان و شاعر رباعی‌های اندیشه‌ورز', 'https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&q=80', 'poet', 'classical'),
+        ('نظامی', 'nezami', 'قرن ششم', 'آفریننده خمسه و داستان‌های عاشقانه ماندگار', 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=80', 'poet', 'classical'),
+        ('عطار', 'attar', 'قرن ششم', 'شاعر عرفان و نویسنده منطق‌الطیر', 'https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=600&q=80', 'poet', 'classical'),
+        ('پروین اعتصامی', 'parvin-etesami', 'معاصر', 'شاعر مناظره‌های حکیمانه و زبان روشن', 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80', 'poet', 'contemporary'),
+        ('شهریار', 'shahriar', 'معاصر', 'شاعر نام‌آشنای غزل و حیدربابایه سلام', 'https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&q=80', 'poet', 'contemporary'),
+        ('فاضل نظری', 'fazel-nazari', 'معاصر', 'شاعر غزل‌های امروزی با زبانی موجز و عاطفی', 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80', 'poet', 'contemporary'),
+        ('صادق هدایت', 'sadegh-hedayat', 'معاصر', 'نویسنده بوف کور و از پیشگامان داستان‌نویسی مدرن فارسی', 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?w=600&q=80', 'writer', 'contemporary'),
+        ('محمود دولت‌آبادی', 'mahmoud-dowlatabadi', 'معاصر', 'نویسنده کلیدر و راوی زندگی مردم و زمین', 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=600&q=80', 'writer', 'contemporary')");
     $pdo->exec("ALTER TABLE exams ADD COLUMN IF NOT EXISTS teacher_id INT UNSIGNED NULL");
     $pdo->exec("CREATE TABLE IF NOT EXISTS exam_grades (
         id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,

@@ -42,6 +42,16 @@ function url(string $path = ''): string
     return $baseUrl . ($path === '' ? '/' : '/' . ltrim($path, '/'));
 }
 
+function asset_url(?string $path): string
+{
+    $path = trim((string) $path);
+    if ($path === '' || preg_match('#^(https?:)?//#i', $path) === 1) {
+        return $path;
+    }
+
+    return url($path);
+}
+
 function e(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');

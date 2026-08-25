@@ -15,8 +15,8 @@
 
 <body>
     <header>
-        <div class="shell nav"><a class="brand" href="/"><span class="mark">ب</span> ادب آموز</a><a class="back"
-                href="/">بازگشت به خانه ←</a></div>
+        <div class="shell nav"><a class="brand" href="./"><span class="mark">ب</span> ادب آموز</a><a class="back"
+                href="./">بازگشت به خانه ←</a></div>
     </header>
     <main>
         <section class="shell intro">
@@ -25,96 +25,182 @@
             <p>رد پای شاعران و نویسندگانی را دنبال کن که زبان فارسی را برای همیشه زنده نگه داشتند.</p>
         </section>
         <section class="shell">
-            <div class="filters"><button class="filter active">همه دوره‌ها</button><button
-                    class="filter">کلاسیک</button><button class="filter">معاصر</button><button
-                    class="filter">شاعران</button><button class="filter">نویسندگان</button></div>
-            <div class="grid">
-                <article class="person"><img
+            <div class="filters" id="filters" role="group" aria-label="فیلتر شاعران و نویسندگان">
+                <button class="filter active" type="button" data-filter="all">همه دوره‌ها</button>
+                <button class="filter" type="button" data-filter="classical">کلاسیک</button>
+                <button class="filter" type="button" data-filter="contemporary">معاصر</button>
+                <button class="filter" type="button" data-filter="poet">شاعران</button>
+                <button class="filter" type="button" data-filter="writer">نویسندگان</button>
+            </div>
+            <div class="grid" id="peopleGrid">
+                <article class="person" data-era="classical" data-category="poet"><img
                         src="https://commons.wikimedia.org/wiki/Special:FilePath/FerdowsiFartur.jpg?width=600"
                         alt="نگاره فردوسی" width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>فردوسی</h2><span class="period">قرن چهارم</span>
-                        <p>سراینده شاهنامه و پاسدار زبان فارسی</p><button class="view">مشاهده</button>
+                        <p>سراینده شاهنامه و پاسدار زبان فارسی</p><button class="view" type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="classical" data-category="poet"><img
                         src="https://commons.wikimedia.org/wiki/Special:FilePath/Saadi_-_Il_Roseto,_I_(page_1_crop).jpg?width=600"
                         alt="نگاره سعدی" width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>سعدی</h2><span class="period">قرن هفتم</span>
-                        <p>استاد حکایت و غزل، نویسنده گلستان</p><button class="view">مشاهده</button>
+                        <p>استاد حکایت و غزل، نویسنده گلستان</p><button class="view" type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="classical" data-category="poet"><img
                         src="https://commons.wikimedia.org/wiki/Special:FilePath/Chama_al-Din_Muhammad_Hafiz.jpg?width=600"
                         alt="نگاره حافظ" width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>حافظ</h2><span class="period">قرن هشتم</span>
-                        <p>شاعر غزل‌های رازآلود و ماندگار</p><button class="view">مشاهده</button>
+                        <p>شاعر غزل‌های رازآلود و ماندگار</p><button class="view" type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="classical" data-category="poet"><img
                         src="https://images.unsplash.com/photo-1577083552431-6e5fd01988c5?w=600&q=80" alt="مولانا"
                         width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>مولانا</h2><span class="period">قرن هفتم</span>
-                        <p>شاعر شور و معنا، آفریننده مثنوی</p><button class="view">مشاهده</button>
+                        <p>شاعر شور و معنا، آفریننده مثنوی</p><button class="view" type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="classical" data-category="poet"><img
                         src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&q=80" alt="خیام"
                         width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>خیام</h2><span class="period">قرن پنجم</span>
-                        <p>حکیم، ریاضی‌دان و شاعر رباعی‌های اندیشه‌ورز</p><button class="view">مشاهده</button>
+                        <p>حکیم، ریاضی‌دان و شاعر رباعی‌های اندیشه‌ورز</p><button class="view"
+                            type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=80"
-                        alt="نظامی" width="600" height="220" loading="lazy" decoding="async">
+                <article class="person" data-era="classical" data-category="poet"><img
+                        src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=600&q=80" alt="نظامی"
+                        width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>نظامی</h2><span class="period">قرن ششم</span>
-                        <p>آفریننده خمسه و داستان‌های عاشقانه ماندگار</p><button class="view">مشاهده</button>
+                        <p>آفریننده خمسه و داستان‌های عاشقانه ماندگار</p><button class="view"
+                            type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="classical" data-category="poet"><img
                         src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=600&q=80" alt="عطار"
                         width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>عطار</h2><span class="period">قرن ششم</span>
-                        <p>شاعر عرفان و نویسنده منطق‌الطیر</p><button class="view">مشاهده</button>
+                        <p>شاعر عرفان و نویسنده منطق‌الطیر</p><button class="view" type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="contemporary" data-category="poet"><img
                         src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80"
                         alt="پروین اعتصامی" width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>پروین اعتصامی</h2><span class="period">معاصر</span>
-                        <p>شاعر مناظره‌های حکیمانه و زبان روشن</p><button class="view">مشاهده</button>
+                        <p>شاعر مناظره‌های حکیمانه و زبان روشن</p><button class="view" type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="contemporary" data-category="poet"><img
                         src="https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&q=80" alt="شهریار"
                         width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>شهریار</h2><span class="period">معاصر</span>
-                        <p>شاعر نام‌آشنای غزل و حیدربابایه سلام</p><button class="view">مشاهده</button>
+                        <p>شاعر نام‌آشنای غزل و حیدربابایه سلام</p><button class="view" type="button">مشاهده</button>
                     </div>
                 </article>
-                <article class="person"><img
+                <article class="person" data-era="contemporary" data-category="poet"><img
                         src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80" alt="فاضل نظری"
                         width="600" height="220" loading="lazy" decoding="async">
                     <div class="body">
                         <h2>فاضل نظری</h2><span class="period">معاصر</span>
-                        <p>شاعر غزل‌های امروزی با زبانی موجز و عاطفی</p><button class="view">مشاهده</button>
+                        <p>شاعر غزل‌های امروزی با زبانی موجز و عاطفی</p><button class="view"
+                            type="button">مشاهده</button>
                     </div>
                 </article>
             </div>
+            <p class="empty-people" id="emptyPeople" hidden>برای این فیلتر هنوز چهره‌ای ثبت نشده است.</p>
         </section>
     </main>
     <footer class="footer">
         <div class="shell">ادب آموز · قصه کلمه‌ها با صدای بزرگان ادامه دارد</div>
     </footer>
+    <script src="js/persian-numbers.js"></script>
+    <script>
+        const peopleGrid = document.getElementById('peopleGrid');
+        const emptyPeople = document.getElementById('emptyPeople');
+        const filterButtons = [...document.querySelectorAll('#filters .filter')];
+        let activeFilter = 'all';
+
+        const matchesFilter = (card, filter) => filter === 'all'
+            || card.dataset.era === filter
+            || card.dataset.category === filter;
+
+        const applyFilter = () => {
+            let visible = 0;
+            peopleGrid.querySelectorAll('.person').forEach(card => {
+                const shown = matchesFilter(card, activeFilter);
+                card.hidden = !shown;
+                if (shown) visible += 1;
+            });
+            emptyPeople.hidden = visible > 0;
+        };
+
+        filterButtons.forEach(button => button.addEventListener('click', () => {
+            activeFilter = button.dataset.filter;
+            filterButtons.forEach(other => other.classList.toggle('active', other === button));
+            applyFilter();
+        }));
+
+        peopleGrid.addEventListener('click', event => {
+            const button = event.target.closest('.view');
+            if (!button) return;
+            const card = button.closest('.person');
+            const expanded = card.classList.toggle('expanded');
+            button.textContent = expanded ? 'بستن' : 'مشاهده';
+        });
+
+        const buildCard = (person) => {
+            const card = document.createElement('article');
+            card.className = 'person';
+            card.dataset.era = person.era === 'contemporary' ? 'contemporary' : 'classical';
+            card.dataset.category = person.category === 'writer' ? 'writer' : 'poet';
+
+            const image = document.createElement('img');
+            image.src = person.image_url || '';
+            image.alt = `نگاره ${person.name || 'چهره ادبی'}`;
+            image.width = 600;
+            image.height = 220;
+            image.loading = 'lazy';
+            image.decoding = 'async';
+
+            const body = document.createElement('div');
+            body.className = 'body';
+            const name = document.createElement('h2');
+            name.textContent = person.name || '';
+            const period = document.createElement('span');
+            period.className = 'period';
+            period.textContent = person.period || (card.dataset.category === 'writer' ? 'نویسنده' : 'شاعر');
+            const biography = document.createElement('p');
+            biography.textContent = person.biography || '';
+            const view = document.createElement('button');
+            view.className = 'view';
+            view.type = 'button';
+            view.textContent = 'مشاهده';
+
+            body.append(name, period, biography, view);
+            card.append(image, body);
+            return card;
+        };
+
+        fetch('api/poets', { credentials: 'same-origin' })
+            .then(response => response.json())
+            .then(content => {
+                if (!Array.isArray(content.poets) || content.poets.length === 0) return;
+                peopleGrid.textContent = '';
+                content.poets.forEach(person => peopleGrid.append(buildCard(person)));
+                applyFilter();
+            })
+            .catch(() => { });
+    </script>
 </body>
-<script src="js/persian-numbers.js"></script>
 
 </html>

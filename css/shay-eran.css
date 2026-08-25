@@ -82,6 +82,10 @@
             max-width: 560px
         }
 
+        .coral-text {
+            color: var(--coral)
+        }
+
         .filters {
             display: flex;
             gap: 9px;
@@ -151,7 +155,28 @@
             font-size: .76rem;
             color: var(--soft);
             margin: 8px 0 14px;
-            min-height: 49px
+            min-height: 49px;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden
+        }
+
+        .person.expanded .body p {
+            -webkit-line-clamp: unset;
+            line-clamp: unset;
+            overflow: visible
+        }
+
+        .empty-people {
+            margin: 0 0 70px;
+            padding: 28px;
+            text-align: center;
+            color: var(--soft);
+            background: var(--paper);
+            border: 1px dashed var(--line);
+            border-radius: 20px
         }
 
         .view {

@@ -44,6 +44,7 @@ $routes = [
     'admin/books' => __DIR__ . '/admin-books.php',
     'api/me' => __DIR__ . '/me.php',
     'api/home-content' => __DIR__ . '/home-content.php',
+    'api/poets' => __DIR__ . '/poets-content.php',
     'api/lesson-progress' => __DIR__ . '/lesson-progress.php',
 ];
 
